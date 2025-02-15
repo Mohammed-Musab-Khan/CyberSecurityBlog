@@ -1,0 +1,1100 @@
+/*-----------------------------------*\
+  #style.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2025 Mohammed Musab Khan
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+    /**
+     * colors
+     */
+  
+    --eerie-black_80: hsla(225, 9%, 9%, 0.8);
+    --eerie-black_60: hsla(225, 9%, 9%, 0.6);
+    --eerie-black: hsl(225, 9%, 9%);
+    --light-gray-1: hsl(0, 0%, 80%);
+    --light-gray-2: hsl(240, 2%, 81%);
+    --gainsboro: hsl(240, 9%, 91%);
+    --cultured: hsl(300, 8%, 95%);
+    --blue-ryb: hsl(232, 100%, 60%);
+    --white_20: hsla(0, 0%, 100%, 0.2);
+    --white: hsl(0, 0%, 100%);
+  
+    /**
+     * typography
+     */
+  
+    --ff-inter: 'Inter', sans-serif;
+  
+    --fs-1: 3.6rem;
+    --fs-2: 3.2rem;
+    --fs-3: 2.4rem;
+    --fs-4: 2.2rem;
+    --fs-5: 2rem;
+    --fs-6: 1.8rem;
+    --fs-7: 1.5rem;
+    --fs-8: 1.4rem;
+    --fs-9: 1.3rem;
+  
+    --fw-700: 700;
+    --fw-500: 500;
+    --fw-300: 300;
+  
+    /**
+     * spacing
+     */
+  
+    --section-padding: 50px;
+  
+    /**
+     * radius
+     */
+  
+    --radius-16: 16px;
+    --radius-pill: 200px;
+    --radius-circle: 50%;
+  
+    /**
+     * transition
+     */
+  
+    --transition-1: 0.25s ease;
+    --transition-2: 0.5s ease;
+  
+  }
+  
+  
+  
+  /*-----------------------------------*\
+    #RESET
+  \*-----------------------------------*/
+  
+  /* Resetting margins, padding, and box-sizing for all elements, including pseudo-elements */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    /* Resetting margins to 0 */
+    padding: 0;
+    /* Resetting padding to 0 */
+    box-sizing: border-box;
+    /* Setting box-sizing to border-box to include border and padding in the element's total width and height */
+  }
+  
+  /* Removing default list-style for <li> elements */
+  li {
+    list-style: none;
+    /* Removing bullets or numbering from lists */
+  }
+  
+  /* Setting display property to block for various elements */
+  a,
+  /* Anchors */
+  img,
+  /* Images */
+  span,
+  /* Spans */
+  input,
+  /* Inputs */
+  button,
+  /* Buttons */
+  ion-icon {
+    /* Ion icons */
+    display: block;
+    /* Changing the display to block for these elements */
+  }
+  
+  /* Styling anchor elements */
+  a {
+    color: inherit;
+    /* Inheriting text color from parent */
+    text-decoration: none;
+    /* Removing default underline from anchor text */
+  }
+  
+  /* Styling image elements */
+  img {
+    height: auto;
+    /* Ensuring images maintain their aspect ratio */
+  }
+  
+  
+  
+  
+  /* Disabling pointer events for ion-icon elements */
+  ion-icon {
+    pointer-events: none;
+  }
+  
+  /* Setting the font family for the entire HTML document */
+  html {
+    font-family: var(--ff-inter);
+    /* Setting the font family using a CSS custom property (--ff-inter) */
+    font-size: 10px;
+    /* Setting the base font size to 10 pixels */
+    scroll-behavior: smooth;
+    /* Applying smooth scrolling behavior to anchor links */
+  }
+  
+  /* Setting styles for the body element */
+  
+  body {
+    background-color: var(--white);
+    /* Setting background color using a CSS custom property (--white) */
+    color: var(--eerie-black);
+    /* Setting text color using a CSS custom property (--eerie-black) */
+    font-size: 1.6rem;
+    /* Setting the base font size to 1.6rem */
+    line-height: 1.5;
+    /* Setting the line height to 1.5 times the font size */
+  }
+  
+  
+  /*-----------------------------------*\
+    #REUSED STYLE
+  \*-----------------------------------*/
+  
+  .hover\:underline {
+    text-underline-offset: 3px;
+  }
+  
+  .hover\:underline:is(:hover, :focus) {
+    text-decoration: underline;
+  }
+  
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    line-height: 1.2;
+  }
+  
+  .h1,
+  .h2 {
+    font-weight: var(--fw-300);
+  }
+  
+  .h1 {
+    font-size: var(--fs-1);
+  }
+  
+  .h2 {
+    font-size: var(--fs-2);
+  }
+  
+  .h3 {
+    font-size: var(--fs-3);
+  }
+  
+  .h4 {
+    font-size: var(--fs-4);
+  }
+  
+  .h5 {
+    font-size: var(--fs-6);
+  }
+  
+  .newsletter-form {
+    position: relative;
+    max-width: 400px;
+  }
+  
+  .newsletter-form .email-field {
+    background-color: var(--cultured);
+    color: inherit;
+    padding: 14px 20px;
+    padding-inline-end: 140px;
+    border-radius: var(--radius-pill);
+  }
+  
+  .newsletter-form .email-field:focus {
+    background-color: var(--gainsboro);
+  }
+  
+  .newsletter-form .email-field::placeholder {
+    color: var(--eerie-black_60);
+  }
+  
+  .newsletter-form .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .btn {
+    background-color: var(--eerie-black);
+    color: var(--white);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    line-height: 1.3;
+    padding: 11px 25px;
+    border-radius: var(--radius-pill);
+    transition: var(--transition-1);
+  }
+  
+  .btn:is(:hover, :focus) {
+    background-color: var(--blue-ryb);
+  }
+  
+  .section-subtitle {
+    padding-block: 15px;
+  }
+  
+  .img-holder {
+    /* Set a background color for the image container */
+    background-color: hsl(0, 0%, 80%);
+    /* Hide any content that overflows the image container */
+    overflow: hidden;
+  }
+  
+  
+  .img-cover {
+    /* Ensure the image covers the entire container */
+    width: 100%;
+    height: 100%;
+    /* Scale the image as large as possible while maintaining its aspect ratio */
+    object-fit: cover;
+  }
+  
+  /*-----------------------------------*\
+    #Childern's Post
+  \*-----------------------------------*/
+  .has-scrollbar {
+    /* Use flexbox layout */
+    display: flex;
+    /* Set gap between flex items */
+    gap: 10px;
+    /* Enable horizontal scrolling */
+    overflow-x: auto;
+    /* Enable scroll snapping, snapping to the nearest boundary of the scrolling container */
+    scroll-snap-type: inline mandatory;
+    /* Add padding at the end of the block axis (usually the bottom) */
+    padding-block-end: 20px;
+    /* Adjust margin at the end of the block axis (usually the bottom) to align content */
+    margin-block-end: -20px;
+    /* Adjust margin on the inline axis (usually left and right) to align content */
+    margin-inline: -15px;
+    /* Add padding on the inline axis (usually left and right) */
+    padding-inline: 15px;
+  }
+  
+  .scrollbar-item {
+    /* Set the minimum width of the element to 70% of its container's width */
+    min-width: 70%;
+    /* Define how the element should be aligned when snapping during scrolling */
+    scroll-snap-align: center;
+  }
+  
+  .blog-card .card-banner {
+    /* Position the card banner relative to its container */
+    position: relative;
+    /* Apply rounded corners to the card banner */
+    border-radius: 16px;
+    /* Add margin at the bottom of the card banner */
+    margin-block-end: 15px;
+  }
+  
+  .card-meta-list {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .card-tag {
+    background-color: var(--cultured);
+    font-size: var(--fs-9);
+    font-weight: var(--fw-500);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    transition: var(--transition-1);
+  }
+  
+  .card-tag:is(:hover, :focus) {
+    background-color: var(--gainsboro);
+  }
+  
+  .blog-card .card-title {
+    margin-block: 8px 12px;
+    text-decoration-thickness: 2px;
+  }
+  
+  .blog-card .card-text {
+    font-size: var(--fs-8);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    padding-inline-end: 20px;
+  }
+  
+  /* Define styles for elements with the class "grid-list" */
+  .grid-list {
+    /* Use grid display to layout its children in a grid */
+    display: grid;
+  
+    /* Define the gap (spacing) between grid items */
+    gap: 30px;
+  
+  }
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #HEADER
+  \*-----------------------------------*/
+  
+  
+  .header {
+    position: relative;
+    padding-block: 25px;
+  }
+  
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header .wrapper {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .navbar {
+    background-color: var(--eerie-black);
+    color: var(--white);
+    position: absolute;
+    top: calc(100% - 20px);
+    right: 0;
+    min-width: 180px;
+    padding: 15px 10px;
+    border-radius: var(--radius-16);
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-1);
+    z-index: 2;
+  }
+  
+  .navbar.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .navbar-link {
+    text-align: right;
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+    padding: 5px;
+  }
+  
+  
+  
+  /*-----------------------------------*\
+    #HERO
+  \*-----------------------------------*/
+  
+  
+  .hero {
+    padding-block-start: 10px;
+    background-image: url("./assets/images/indexbackground.jpg");
+    /* Adjusting background size to cover the entire element */
+    background-size: cover;
+    /* Centering the background image */
+    background-position: center;
+    /* Makes the element into a circle */
+    border-radius: 10px;
+  
+  
+  }
+  
+  .hero-title {
+    margin-block-end: 25px;
+    color: hsl(0, 0%, 100%);
+  }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #all POST
+  \*-----------------------------------*/
+  
+  .all {
+    padding-block-start: 15px;
+  }
+  
+  .all .section-title .strong {
+    display: block;
+  }
+  
+  .all .section-title {
+    margin-block-end: 20px;
+  }
+  
+  .all .btn {
+    margin-inline: auto;
+    margin-block: 50px 30px;
+  }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #RECOMMENDED POST
+  \*-----------------------------------*/
+  
+  .section.recommended {
+    border-block-end: none;
+  }
+  
+  .recommended .grid-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .recommended .blog-card {
+    margin-block-end: 5px;
+  }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #NEWSLETTER
+  \*-----------------------------------*/
+  
+  .newsletter {
+    padding-block-start: 40px;
+  }
+  
+  .newsletter .section-title {
+    margin-block-end: 25px;
+  }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #FOOTER
+  \*-----------------------------------*/
+  
+  .footer {
+    padding-block: 40px 20px;
+  }
+  
+  .section.footer-top {
+    border-block-end: none;
+  }
+  
+  .footer-top {
+    display: grid;
+    gap: 25px;
+  }
+  
+  .footer .logo {
+    margin-block-end: 25px;
+  }
+  
+  .footer-text {
+    font-size: var(--fs-5);
+    font-weight: var(--fw-500);
+    line-height: 1.4;
+  }
+  
+  .footer-list .h5 {
+    font-weight: var(--fw-700);
+    margin-block-end: 15px;
+  }
+  
+  .footer-list-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .footer-list-item ion-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  
+  .footer-link {
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+    margin-block-start: 8px;
+  }
+  
+  .copyright {
+    font-size: var(--fs-8);
+    margin-block-start: 25px;
+  }
+  
+  .copyright-link {
+    display: inline-block;
+  }
+  
+  
+  
+  
+  
+  /*-----------------------------------*\
+    #MEDIA QUERIES
+  \*-----------------------------------*/
+  
+  /**
+   * responsive for large than 575px screen
+   */
+  
+  @media (min-width: 575px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 6rem;
+      --fs-2: 4.8rem;
+  
+    }
+  
+  
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .section {
+      margin-inline: 30px;
+    }
+  
+    .newsletter-form,
+    .btn {
+      --fs-6: 2.2rem;
+    }
+  
+    .newsletter-form .email-field {
+      font-size: var(--fs-6);
+      padding-inline-end: 170px;
+    }
+  
+    .btn {
+      padding: 14px 30px;
+    }
+  
+    .section-subtitle {
+      font-size: var(--fs-6);
+    }
+  
+    .has-scrollbar {
+      margin-inline: -30px;
+      padding-inline: 30px;
+    }
+  
+    .has-scrollbar::-webkit-scrollbar-button {
+      width: 15px;
+    }
+  
+    .scrollbar-item {
+      min-width: 40%;
+    }
+  
+    .grid-list {
+      grid-template-columns: 1fr 1fr;
+      column-gap: 10px;
+    }
+  
+  
+  
+    /**
+     * HEADER
+     */
+  
+    .header {
+      padding-block: 30px;
+    }
+  
+  
+  
+    /**
+     * SEARCH BAR
+     */
+  
+    .search-bar .input-field {
+      --fs-1: 3.6rem;
+    }
+  
+  
+  
+    /**
+     * RECOMMENDED POST, FOOTER
+     */
+  
+    .recommended .grid-list,
+    .footer-top {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .footer-brand {
+      grid-column: 1 / 4;
+    }
+  
+    .footer-text {
+      max-width: 400px;
+      margin-block-end: 20px;
+    }
+  
+  }
+  
+  
+  
+  
+  
+  /**
+   * responsive for large than 768px screen
+   */
+  
+  @media (min-width: 768px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 7.2rem;
+      --fs-2: 5.5rem;
+  
+      /**
+       * radius
+       */
+  
+      --radius-16: 26px;
+  
+    }
+  
+  
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .section {
+      margin-inline: 50px;
+    }
+  
+    .has-scrollbar {
+      margin-inline: -50px;
+      padding-inline: 50px;
+      gap: 15px;
+    }
+  
+    .has-scrollbar::-webkit-scrollbar-button {
+      width: 25px;
+    }
+  
+    .scrollbar-item {
+      min-width: 30%;
+    }
+  
+    .grid-list {
+      gap: 40px 15px;
+    }
+  
+  
+  
+    /**
+     * SEARCH BAR
+     */
+  
+    .search-bar {
+      padding: 25px;
+    }
+  
+    .search-bar .input-field {
+      --fs-1: 4.6rem;
+    }
+  
+  
+  
+    /**
+     * RECENT POST
+     */
+  
+    .top-author {
+      display: block;
+      text-align: right;
+    }
+  
+    .recent .title-wrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-block-end: 10px;
+    }
+  
+    .top-author .avatar-item:not(:first-child) {
+      margin-inline-end: -25px;
+    }
+  
+    .top-author .span {
+      color: var(--eerie-black_80);
+      font-size: var(--fs-8);
+      margin-block-start: 10px;
+    }
+  
+    .avatar.large {
+      border: 6px solid var(--white);
+      width: 70px;
+    }
+  
+    .avatar.large:is(:hover, :focus) {
+      transform: translateY(-3px);
+    }
+  
+  
+  
+    /**
+     * RECOMMENDED POST
+     */
+  
+    .recommended .grid-list {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 15px;
+    }
+  
+  
+  
+    /**
+     * FOOTER
+     */
+  
+    .footer-top {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .footer-brand {
+      grid-column: 1 / 5;
+    }
+  
+    .footer-link {
+      --fs-7: 1.7rem;
+    }
+  
+  }
+  
+  
+  
+  
+  
+  /**
+   * responsive for large than 992px screen
+   */
+  
+  @media (min-width: 992px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 8.8rem;
+  
+      /**
+       * spacing
+       */
+  
+      --section-padding: 60px;
+  
+    }
+  
+  
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .section {
+      margin-inline: 60px;
+    }
+  
+    .has-scrollbar {
+      margin-inline: -60px;
+      padding-inline: 60px;
+    }
+  
+    .has-scrollbar::-webkit-scrollbar-button {
+      width: 30px;
+    }
+  
+    .btn {
+      --fs-6: 2.4rem;
+      padding: 18px 36px;
+    }
+  
+    .newsletter-form {
+      max-width: 450px;
+    }
+  
+    .newsletter-form .email-field {
+      padding-block: 18px;
+      padding-inline-start: 30px;
+    }
+  
+    .blog-card .card-title {
+      padding-inline-end: 15px;
+    }
+  
+    .blog-card .card-text {
+      font-size: unset;
+    }
+  
+    .grid-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+  
+  
+    /**
+     * HEADER
+     */
+  
+    .nav-toggle-btn {
+      display: none;
+    }
+  
+    .search-btn .span,
+    .header .btn {
+      display: block;
+    }
+  
+    .header .wrapper {
+      gap: 10px;
+    }
+  
+    .search-btn,
+    .header .btn {
+      --fs-6: 1.8rem;
+      padding: 6px 20px;
+    }
+  
+    .search-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: var(--cultured);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-500);
+      border-radius: var(--radius-pill);
+      transition: var(--transition-1);
+    }
+  
+    .search-btn:is(:hover, :focus) {
+      background-color: var(--gainsboro);
+    }
+  
+    .navbar,
+    .navbar.active {
+      all: unset;
+      margin-inline: auto 12px;
+    }
+  
+    .navbar-list {
+      display: flex;
+      gap: 8px;
+    }
+  
+  
+  
+    /**
+     * HERO
+     */
+  
+    .hero {
+      padding-block-start: 25px;
+    }
+  
+    .hero-title {
+      margin-block-end: 30px;
+    }
+  
+    .hero .newsletter-text {
+      display: block;
+      max-width: 400px;
+      color: var(--eerie-black_80);
+      line-height: 1.3;
+    }
+  
+    .hero .wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  
+  
+  
+    /**
+     * RECENT POST
+     */
+  
+    .top-author .avatar {
+      width: 85px;
+    }
+  
+  
+  
+    /**
+     * RECOMMENDED POST
+     */
+  
+    .recommended .grid-list {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  
+  
+  
+    /**
+     * NEWSLETTER
+     */
+  
+    .newsletter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .newsletter .section-title {
+      margin-block-end: 0;
+    }
+  
+  }
+  
+  
+  
+  
+  
+  /**
+   * responsive for large than 1200px screen
+   */
+  
+  @media (min-width: 1200px) {
+  
+    /**
+     * CUSTOM PROPERTY
+     */
+  
+    :root {
+  
+      /**
+       * typography
+       */
+  
+      --fs-1: 9.2rem;
+      --fs-2: 6rem;
+      --fs-3: 2.6rem;
+      --fs-4: 2.4rem;
+  
+    }
+  
+  
+  
+    /**
+     * REUSED STYLE
+     */
+  
+    .section {
+      margin-inline: 70px;
+    }
+  
+    .has-scrollbar {
+      margin-inline: -70px;
+      padding-inline: 70px;
+    }
+  
+    .has-scrollbar::-webkit-scrollbar-button {
+      width: 35px;
+    }
+  
+    .card-tag {
+      --fs-9: 1.4rem;
+      padding: 4px 10px;
+    }
+  
+    .grid-list {
+      row-gap: 50px;
+    }
+  
+  
+  
+    /**
+     * HERO
+     */
+  
+    .section.hero {
+      padding-block: 50px 80px;
+    }
+  
+    .hero-title {
+      margin-block-end: 50px;
+    }
+  
+  
+  
+    /**
+     * RECENT POST
+     */
+  
+    .top-author .avatar {
+      width: 100px;
+    }
+  
+    .recent .btn {
+      margin-block-start: 70px;
+    }
+  
+  
+  
+    /**
+     * FOOTER
+     */
+  
+    .footer-top {
+      grid-template-columns: 1fr 0.4fr 0.4fr 0.4fr 0.4fr;
+    }
+  
+    .footer-brand {
+      grid-column: auto;
+      padding-inline-end: 100px;
+    }
+  
+  }
